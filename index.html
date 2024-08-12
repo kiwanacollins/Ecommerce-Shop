@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>EMAK Store</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+        <style>
+            .carousel-item {
+    height: 500px; /* Set a fixed height for the carousel items */
+}
+
+.carousel-item img {
+    width: 100%; /* Ensure the image takes up the full width of the container */
+    height: 100%; /* Ensure the image takes up the full height of the container */
+    object-fit: cover; /* Ensure the image covers the container */
+}
+            /* Modal styles */
+            /* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Reduce margin to ensure more content is visible */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Add a max-width to the modal content */
+    max-height: 90vh; /* Ensure the modal content does not exceed viewport height */
+    overflow-y: auto; /* Add vertical scroll if content exceeds max-height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    text-align: center;
+}
+
+.modal-content img {
+    max-width: 100%; /* Ensure the image does not exceed the modal content width */
+    height: auto; /* Maintain the aspect ratio */
+    margin-bottom: 20px;
+}
+
+.close {
+    color: #272424;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Media query for desktop */
+@media (min-width: 768px) {
+    .modal-content {
+        flex-direction: row; /* Change to row for desktop */
+        justify-content: space-between;
+    }
+
+    .modal-content img {
+        max-width: 50%; /* Adjust image size for desktop */
+        margin-right: 20px; /* Add some space between image and text */
+    }
+
+    .modal-content div {
+        flex: 1; /* Allow text content to take remaining space */
+    }
+}
+        </style>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+       
+        
+        <!-- Nav Bar Start -->
+        <!-- <div class="nav" style="height: 80px;">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="product-list.html" class="nav-item nav-link">Products</a>
+                            <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                            <a href="cart.html" class="nav-item nav-link">Cart</a>
+                            <a href="checkout.html" class="nav-item nav-link">Checkout</a>
+                            <a href="my-account.html" class="nav-item nav-link">My Account</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
+                                <div class="dropdown-menu">
+                                    <a href="wishlist.html" class="dropdown-item">Wishlist</a>
+                                    <a href="login.html" class="dropdown-item">Login & Register</a>
+                                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Login</a>
+                                    <a href="#" class="dropdown-item">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div> -->
+        <!-- Nav Bar End -->      
+        
+        <!-- Bottom Bar Start -->
+        <div class="bottom-bar" style="position: sticky; top: 0; z-index: 100;">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/E-MAK logo.png" alt="Logo" style="width: 120px; height: 120px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <!-- <div class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Login</a>
+                                <a href="#" class="dropdown-item">Register</a>
+                            </div>
+                        </div> -->
+                        <div class="user">
+                            <a href="cart.html" class="btn cart" style="margin-right: 13px;">
+                                <i class="fa fa-user"></i>
+                                <span>Account</span>
+                            </a>
+
+                            <a href="cart.html" class="btn cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>(0)</span>
+                            </a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Bar End -->       
+        
+        <!-- Main Slider Start -->
+        <div class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <nav class="navbar bg-light" style="overflow-y: scroll;">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-home"></i>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>Best Selling</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Electronics & Accessories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Phones & Tablets</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-tv"></i>TVs & Audio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-blender"></i>Appliances</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-home"></i>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Fashion</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i>Supermarket</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-laptop"></i>Computing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-heartbeat"></i>Health & Beauty</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-baby"></i>Baby Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-gamepad"></i>Gaming</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-store"></i>Official stores</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fa fa-ellipsis-h"></i>Other categories</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="col-md-9">
+                        <div id="headerSlider" class="carousel slide" data-ride="carousel" data-interval="3000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                        <img src="img/slider-1.jpg" class="d-block" alt="Slider Image" />
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                        <img src="img/slider-2.jpg" class="d-block" alt="Slider Image" />
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                        <img src="img/slider-3.jpg" class="d-block" alt="Slider Image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#headerSlider" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#headerSlider" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        <!-- Main Slider End -->        
+        
+        <!-- Feature Start-->
+        <div class="feature">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fab fa-cc-mastercard"></i>
+                            <h2>Secure Payment</h2>
+                            <p>
+                               Payments made through this platform are highly secured
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-truck"></i>
+                            <h2>Country-Wide Delivery</h2>
+                            <p>
+                                Wherever you are, your favorite products are just a click away
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-sync-alt"></i>
+                            <h2>90 Days Return</h2>
+                            <p>
+                                Hassle-free returns within 90 days of your purchase
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-comments"></i>
+                            <h2>24/7 Support</h2>
+                            <p>
+                                We're here for you anytime, day or night
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature End-->      
+        
+        <!-- Category Start-->
+        <div class="category">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="category-item ch-400">
+                            <img src="img/category-3.jpg" />
+                            <a class="category-name" href="">
+                                <p>
+                                    We offer the best products at the best prices on the market 
+
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-250">
+                            <img src="img/category-4.jpg" />
+                            <a class="category-name" href="">
+                                <p>
+                                    We Deliver products at your doorstep
+
+                                </p>
+                            </a>
+                        </div>
+                        <div class="category-item ch-150">
+                            <img src="img/category-5.jpg" />
+                            <a class="category-name" href="">
+                                <p>
+
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-150">
+                            <img src="img/category-6.jpg" />
+                            <a class="category-name" href="">
+                                <p>
+
+                                </p>
+                            </a>
+                        </div>
+                        <div class="category-item ch-250">
+                            <img src="img/category-7.jpg" />
+                            <a class="category-name" href="">
+                                <p>Stay ahead with exclusive offers and new arrivals</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-400">
+                            <img src="img/category-8.jpg" />
+                            <a class="category-name" href="">
+                                <p>Shop with confidence, knowing your satisfaction is our priority</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End-->       
+        
+        <!-- Call to Action Start -->
+        <div class="call-to-action">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1>call us for any queries</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="tel:0123456789">+012-345-6789</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->       
+        
+        <!-- Featured Product Start -->
+        <div class="featured-product product">
+            <div class="container-fluid">
+                <div class="section-header">
+                    <h1>Featured Product</h1>
+                </div>
+                <div class="row align-items-center product-slider product-slider-4">
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-1.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-2.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-3.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-4.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-5.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured Product End -->       
+        
+        <!-- Newsletter Start -->
+        <div class="newsletter">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Subscribe To Our Newsletter</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form">
+                            <input type="email" value="Your email here">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter End -->        
+        
+        <!-- Recent Product Start -->
+        <div class="recent-product product">
+            <div class="container-fluid">
+                <div class="section-header">
+                    <h1>Recent Product</h1>
+                </div>
+                <div class="row align-items-center product-slider product-slider-4">
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-6.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-7.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-8.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-9.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Product Name</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="img/product-10.jpg" alt="Product Image">
+                                </a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                   
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h3><span>UGX</span> 15,000</h3>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Product End -->
+        
+         
+        
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i>EMAK, Kampala Uganda</p>
+                                <p><i class="fa fa-envelope"></i>email@example.com</p>
+                                <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Follow Us</h2>
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Company Info</h2>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Purchase Info</h2>
+                            <ul>
+                                <li><a href="#">Pyament Policy</a></li>
+                                <li><a href="#">Shipping Policy</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="row payment align-items-center">
+                    <div class="col-md-6">
+                        <div class="payment-method">
+                            <h2>We Accept:</h2>
+                            <img src="img/payment-method.png" alt="Payment Method" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="payment-security">
+                            <h2>Secured By:</h2>
+                            <img src="img/godaddy.svg" alt="Payment Security" />
+                            <img src="img/norton.svg" alt="Payment Security" />
+                            <img src="img/ssl.svg" alt="Payment Security" />
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+         
+                    <div class="col-md-12 copyright" style="text-align: center;">
+                        <p>Copyright &copy; 2024 <a href="#"> EMAK</a>, All Rights Reserved.</p>
+                    </div>
+
+              
+           
+        </div>
+        <!-- Footer Bottom End -->       
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+
+               <!-- Modal Structure -->
+<!-- Modal Structure -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image">
+        <div>
+            <h2 id="modalTitle">Product Name</h2>
+            <p id="modalDescription">Product Description</p>
+            <h3 id="modalPrice"><span>UGX</span> 15,000</h3>
+            <a class="btn" href="./checkout.html"><i class="fa fa-shopping-cart"></i>Checkout</a>
+        </div>
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("productModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Get all product items
+    var productItems = document.querySelectorAll(".product-item");
+
+    // Add click event listener to each product item
+    productItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+            var image = item.querySelector(".product-image img").src;
+            var title = item.querySelector(".product-title a").innerText;
+            var description = item.querySelector(".product-description") ? item.querySelector(".product-description").innerText : "No description available"; // Assuming description is in .product-description
+            var price = item.querySelector(".product-price h3").innerHTML;
+
+            document.getElementById("modalImage").src = image;
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("modalPrice").innerHTML = price;
+            modal.style.display = "block";
+        });
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+        
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+ 
+    </body>
+</html>
